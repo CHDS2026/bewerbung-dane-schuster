@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bewerbung – Dane Schuster</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #4CAF50;
+            --background: #f9f9f9;
+        }
+        body { font-family: Arial, sans-serif; background: var(--background); margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 40px 0; background: var(--primary); color: white; }
+        h1 { font-size: 2.5em; }
+        nav { background: white; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin: 20px 0; }
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 20px; padding: 0; margin: 0; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: var(--primary); padding: 8px 15px; border-radius: 5px; }
+        nav a:hover { background: rgba(44, 62, 80, 0.1); }
+        .section { background: white; border-radius: 8px; padding: 30px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { color: var(--primary); border-bottom: 2px solid var(--secondary); padding-bottom: 10px; }
+        .pdf-link { display: inline-block; background: var(--secondary); color: white; padding: 12px 24px; border-radius: 5px; text-decoration: none; margin: 10px 5px; }
+        .pdf-link:hover { background: #388E3C; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .contact-item { text-align: center; padding: 20px; background: rgba(44, 62, 80, 0.05); border-radius: 8px; }
+        footer { text-align: center; padding: 30px; background: white; margin: 20px 0; border-radius: 8px; }
+        @media (max-width: 768px) { nav ul { flex-direction: column; } .contact-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Dane Schuster</h1>
+            <p>Bewerbungsunterlagen</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#ueber-mich">Über mich</a></li>
+            <li><a href="#lebenslauf">Lebenslauf</a></li>
+            <li><a href="#anschreiben">Anschreiben</a></li>
+            <li><a href="#bewerbung">Bewerbung</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="ueber-mich" class="section">
+            <h2>Über mich</h2>
+            <p style="font-size: 1.1em; text-align: center;">
+                Hier kannst du eine kurze Zusammenfassung einfügen. Beispiel:<br>
+                "Ich bin ein motivierter [Beruf] mit [X Jahren] Erfahrung in [Bereich].<br>
+                Meine Stärken liegen in [Fähigkeiten]."
+            </p>
+        </section>
+
+        <section id="lebenslauf" class="section">
+            <h2>📄 Lebenslauf</h2>
+            <p>Meinen Lebenslauf können Sie hier herunterladen:</p>
+            <a href="Lebenslauf_Dane_Schuster (1).pdf" class="pdf-link" download>📥 Lebenslauf herunterladen</a>
+            <a href="Lebenslauf_Dane_Schuster (1).pdf" class="pdf-link" target="_blank">🔗 Lebenslauf anzeigen</a>
+        </section>
+
+        <section id="anschreiben" class="section">
+            <h2>📝 Anschreiben</h2>
+            <p>Mein Anschreiben können Sie hier herunterladen:</p>
+            <a href="Anschreiben_Dane_Schuster (1).pdf" class="pdf-link" download>📥 Anschreiben herunterladen</a>
+            <a href="Anschreiben_Dane_Schuster (1).pdf" class="pdf-link" target="_blank">🔗 Anschreiben anzeigen</a>
+        </section>
+
+        <section id="bewerbung" class="section">
+            <h2>📋 Bewerbung (komplett)</h2>
+            <p>Meine vollständigen Bewerbungsunterlagen:</p>
+            <a href="Bewerbung_Dane_Schuster (1).pdf" class="pdf-link" download>📥 Bewerbung herunterladen</a>
+            <a href="Bewerbung_Dane_Schuster (1).pdf" class="pdf-link" target="_blank">🔗 Bewerbung anzeigen</a>
+        </section>
+
+        <section id="kontakt" class="section">
+            <h2>📞 Kontakt</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📧 E-Mail</h3>
+                    <p>[Deine E-Mail]</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Telefon</h3>
+                    <p>[Deine Telefonnummer]</p>
+                </div>
+                <div class="contact-item">
+                    <h3>🔗 LinkedIn</h3>
+                    <p><a href="[Dein LinkedIn]" target="_blank">Profil</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Dane Schuster</p>
+    </footer>
+</body>
+</html>
