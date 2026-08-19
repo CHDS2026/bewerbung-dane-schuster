@@ -3,45 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bewerbung – Dane Schuster</title>
+    <title>Dane Schuster | Multi-Channel-Manager</title>
     <style>
         :root {
             --primary: #2c3e50;
-            --secondary: #4CAF50;
-            --background: #f9f9f9;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --background: #f8f9fa;
+            --text: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --border: #e0e0e0;
         }
-        body { font-family: Arial, sans-serif; background: var(--background); margin: 0; padding: 0; }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; padding: 40px 0; background: var(--primary); color: white; }
-        h1 { font-size: 2.5em; }
-        nav { background: white; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin: 20px 0; }
-        nav ul { display: flex; justify-content: center; list-style: none; gap: 20px; padding: 0; margin: 0; flex-wrap: wrap; }
-        nav a { text-decoration: none; color: var(--primary); padding: 8px 15px; border-radius: 5px; }
-        nav a:hover { background: rgba(44, 62, 80, 0.1); }
-        .section { background: white; border-radius: 8px; padding: 30px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h2 { color: var(--primary); border-bottom: 2px solid var(--secondary); padding-bottom: 10px; }
-        .pdf-link { display: inline-block; background: var(--secondary); color: white; padding: 12px 24px; border-radius: 5px; text-decoration: none; margin: 10px 5px; }
-        .pdf-link:hover { background: #388E3C; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .contact-item { text-align: center; padding: 20px; background: rgba(44, 62, 80, 0.05); border-radius: 8px; }
-        footer { text-align: center; padding: 30px; background: white; margin: 20px 0; border-radius: 8px; }
-        @media (max-width: 768px) { nav ul { flex-direction: column; } .contact-grid { grid-template-columns: 1fr; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile-picture {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--white);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        nav {
+            background: var(--white);
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-radius: 8px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 25px;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background: rgba(44, 62, 80, 0.1);
+            color: var(--secondary);
+        }
+        .section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--secondary);
+            font-size: 1.8em;
+        }
+        h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .intro-text {
+            font-size: 1.15em;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        .pdf-link {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 10px 8px;
+            transition: all 0.3s;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .pdf-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .skill-category {
+            background: rgba(52, 152, 219, 0.08);
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        .skill-category h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skill-category li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .skill-category li:before {
+            content: "✓";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .contact-item {
+            text-align: center;
+            padding: 25px;
+            background: rgba(44, 62, 80, 0.05);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .contact-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .contact-item a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 12px;
+            margin-top: 30px;
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+        .experience-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .job-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        .company-date {
+            color: var(--text-light);
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        .achievements {
+            margin-left: 20px;
+        }
+        .achievements li {
+            margin-bottom: 8px;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .profile-container {
+                padding: 10px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Dane Schuster</h1>
-            <p>Bewerbungsunterlagen</p>
+            <div class="profile-container">
+                <img src="image0.png" alt="Dane Schuster" class="profile-picture">
+                <h1>Dane Schuster</h1>
+                <p class="subtitle">Multi-Channel-Manager | Vertriebssteuerung & Wirtschaftlichkeit</p>
+            </div>
         </div>
     </header>
 
     <nav>
         <ul>
             <li><a href="#ueber-mich">Über mich</a></li>
-            <li><a href="#lebenslauf">Lebenslauf</a></li>
-            <li><a href="#anschreiben">Anschreiben</a></li>
-            <li><a href="#bewerbung">Bewerbung</a></li>
+            <li><a href="#erfahrung">Erfahrung</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#dokumente">Dokumente</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
         </ul>
     </nav>
@@ -49,55 +273,174 @@
     <div class="container">
         <section id="ueber-mich" class="section">
             <h2>Über mich</h2>
-            <p style="font-size: 1.1em; text-align: center;">
-                Hier kannst du eine kurze Zusammenfassung einfügen. Beispiel:<br>
-                "Ich bin ein motivierter [Beruf] mit [X Jahren] Erfahrung in [Bereich].<br>
-                Meine Stärken liegen in [Fähigkeiten]."
+            <p class="intro-text">
+                Multi-Channel-Manager mit Leidenschaft für Zahlen, die überzeugen. Ich steuere Vertriebskanäle nicht nur – ich mache sie messbar, profitabel und skalierbar.
+                Bei enercity habe ich Netto-Sales verdreifacht und Preisportale verfünffacht – bei gesenktem Budget.
+                Mein Antrieb? Datenbasierte Entscheidungen, die nicht nur gut aussehen, sondern auch Geld bringen.
+                Mein Netzwerk an Vertriebspartnern ist über die Jahre gewachsen, das methodische Fundament ebenso.
+                Ich suche eine Position, in der ich beides langfristig in eine Marke investieren kann.
             </p>
         </section>
 
-        <section id="lebenslauf" class="section">
-            <h2>📄 Lebenslauf</h2>
-            <p>Meinen Lebenslauf können Sie hier herunterladen:</p>
-            <a href="Lebenslauf_Dane_Schuster (1).pdf" class="pdf-link" download>📥 Lebenslauf herunterladen</a>
-            <a href="Lebenslauf_Dane_Schuster (1).pdf" class="pdf-link" target="_blank">🔗 Lebenslauf anzeigen</a>
+        <section id="erfahrung" class="section">
+            <h2>Berufliche Erfahrung</h2>
+
+            <div class="experience-item">
+                <div class="job-title">Multi-Channel-Manager</div>
+                <div class="company-date">enercity AG, Hannover | 10/2023 – heute</div>
+                <ul class="achievements">
+                    <li>Steuerung der externen Vertriebskanäle (Preisportale, Profiseller, Distributoren, Door-to-Door, Empfehlungsprogramme) für Strom, Gas, PV und Wärmepumpe im B2C- und B2B-Geschäft</li>
+                    <li>Aufbau des gesamten KPI-Reportings inkl. Wirtschaftlichkeitsanalyse und Forecast in Tableau und Metabase</li>
+                    <li>Netto-Sales rund verdreifacht, Preisportale und Distributoren rund verfünffacht – bei gesenktem Gesamtbudget</li>
+                    <li>Weiterentwicklung des internen Vertriebspartner-Portals</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Chief Sales Officer</div>
+                <div class="company-date">Puriva GmbH | 05/2022 – 09/2023</div>
+                <ul class="achievements">
+                    <li>Aufbau der Vertriebsorganisation von Grund auf (Team von 3 auf 10 Mitarbeiter)</li>
+                    <li>Monatsumsatz in 3 Monaten vom sechs- in den siebenstelligen Bereich gesteigert</li>
+                    <li>Angebotserweiterung um Wartungspakete und zusätzliche Anbieter</li>
+                    <li>Social-Media-Aufbau, Webseiten-Relaunch mit Traffic-Steigerung</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Sales Director</div>
+                <div class="company-date">Vays GmbH | 02/2022 – 04/2022</div>
+                <ul class="achievements">
+                    <li>Restrukturierung der Vertriebsprozesse und Einführung performancegetriebener Marketing-Strategien</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Key Account Manager / Head of Accelerator-Team</div>
+                <div class="company-date">Rednux GmbH | 03/2019 – 06/2021</div>
+                <ul class="achievements">
+                    <li>Persönlicher Umsatz rund dreimal so hoch wie der Teamschnitt</li>
+                    <li>Aufbau und Führung des Accelerator-Teams für schnelle Markterschließung</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Vertriebsleitung / Store Manager</div>
+                <div class="company-date">DEKRA Arbeit GmbH / FITNESSLAND GmbH | 2015 – 2019</div>
+                <ul class="achievements">
+                    <li>25% Netto-Wachstum nach Mitgliederverlust (FITNESSLAND)</li>
+                    <li>Führung von 20 Mitarbeitern mit voller Standortverantwortung</li>
+                </ul>
+            </div>
         </section>
 
-        <section id="anschreiben" class="section">
-            <h2>📝 Anschreiben</h2>
-            <p>Mein Anschreiben können Sie hier herunterladen:</p>
-            <a href="Anschreiben_Dane_Schuster (1).pdf" class="pdf-link" download>📥 Anschreiben herunterladen</a>
-            <a href="Anschreiben_Dane_Schuster (1).pdf" class="pdf-link" target="_blank">🔗 Anschreiben anzeigen</a>
+        <section id="skills" class="section">
+            <h2>Skills & Kompetenzen</h2>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>📊 Steuerung & Wirtschaftlichkeit</h4>
+                    <ul>
+                        <li>Wirtschaftlichkeitsanalyse</li>
+                        <li>Forecast & Prognosen</li>
+                        <li>Deckungsbeitragssteuerung</li>
+                        <li>Budget- und EBIT-Steuerung</li>
+                        <li>KPI-Reporting</li>
+                        <li>BI-Dashboards (Tableau, Metabase)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>💼 Vertrieb & Kanäle</h4>
+                    <ul>
+                        <li>Multi-Channel-Steuerung</li>
+                        <li>Omnichannel-Strategien</li>
+                        <li>Preisportale & Distributoren</li>
+                        <li>Direktvertrieb & Door-to-Door</li>
+                        <li>Partnermanagement</li>
+                        <li>Kampagnensteuerung</li>
+                        <li>Empfehlungsprogramme</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>👥 Führung & Organisation</h4>
+                    <ul>
+                        <li>Teamführung (bis 20 MA)</li>
+                        <li>Aufbau von Vertriebseinheiten</li>
+                        <li>Onboarding & Performance-Coaching</li>
+                        <li>Prozessoptimierung</li>
+                        <li>Strategische Planung</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>💻 Systeme & Tools</h4>
+                    <ul>
+                        <li>Salesforce</li>
+                        <li>epilot</li>
+                        <li>SAP</li>
+                        <li>Odoo</li>
+                        <li>ZOHO</li>
+                        <li>Bitrix24</li>
+                        <li>JTL WaWi</li>
+                        <li>Workday</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>🌍 Sprachen</h4>
+                    <ul>
+                        <li>Deutsch (Muttersprache)</li>
+                        <li>Englisch (verhandlungssicher)</li>
+                        <li>Italienisch (Grundkenntnisse)</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
-        <section id="bewerbung" class="section">
-            <h2>📋 Bewerbung (komplett)</h2>
-            <p>Meine vollständigen Bewerbungsunterlagen:</p>
-            <a href="Bewerbung_Dane_Schuster (1).pdf" class="pdf-link" download>📥 Bewerbung herunterladen</a>
-            <a href="Bewerbung_Dane_Schuster (1).pdf" class="pdf-link" target="_blank">🔗 Bewerbung anzeigen</a>
+        <section id="dokumente" class="section">
+            <h2>Bewerbungsunterlagen</h2>
+            <p style="text-align: center; margin-bottom: 20px;">
+                Hier finden Sie meine vollständigen Bewerbungsunterlagen zum Download oder zur Ansicht im Browser.
+            </p>
+            <div style="text-align: center;">
+                <a href="Lebenslauf_Dane_Schuster (1).pdf" class="pdf-link" download>📥 Lebenslauf herunterladen</a>
+                <a href="Lebenslauf_Dane_Schuster (1).pdf" class="pdf-link" target="_blank">🔗 Lebenslauf anzeigen</a>
+                <br>
+                <a href="Anschreiben_Dane_Schuster (1).pdf" class="pdf-link" download>📥 Anschreiben herunterladen</a>
+                <a href="Anschreiben_Dane_Schuster (1).pdf" class="pdf-link" target="_blank">🔗 Anschreiben anzeigen</a>
+                <br>
+                <a href="Bewerbung_Dane_Schuster (1).pdf" class="pdf-link" download>📥 Komplette Bewerbung herunterladen</a>
+                <a href="Bewerbung_Dane_Schuster (1).pdf" class="pdf-link" target="_blank">🔗 Komplette Bewerbung anzeigen</a>
+            </div>
         </section>
 
         <section id="kontakt" class="section">
-            <h2>📞 Kontakt</h2>
+            <h2>Kontakt</h2>
             <div class="contact-grid">
                 <div class="contact-item">
                     <h3>📧 E-Mail</h3>
-                    <p>[Deine E-Mail]</p>
+                    <p><a href="mailto:daneschuster@live.de">daneschuster@live.de</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>📍 Standort</h3>
+                    <p>Kirchstraße 41a, 29221 Celle</p>
                 </div>
                 <div class="contact-item">
                     <h3>📞 Telefon</h3>
-                    <p>[Deine Telefonnummer]</p>
+                    <p>+49 176 458 249 68</p>
                 </div>
                 <div class="contact-item">
                     <h3>🔗 LinkedIn</h3>
-                    <p><a href="[Dein LinkedIn]" target="_blank">Profil</a></p>
+                    <p><a href="https://www.linkedin.com/in/daneschuster" target="_blank">linkedin.com/in/daneschuster</a></p>
                 </div>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>© 2026 Dane Schuster</p>
+        <p>© 2026 Dane Schuster | Multi-Channel-Manager | Verfügbar ab Monatsende | Gehaltsvorstellung: 80.000 € p.a. | Standort: Celle / Remote</p>
     </footer>
 </body>
 </html>
